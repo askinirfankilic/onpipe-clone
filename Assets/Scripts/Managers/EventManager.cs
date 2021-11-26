@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace OnPipe.Managers
 {
-    public class EventManager : MonoBehaviour
+    public class EventManager
     {
         #region Mouse Inputs
 
@@ -29,6 +29,18 @@ namespace OnPipe.Managers
         {
             OnMouseInputUp?.Invoke();
         }
+
+        #endregion
+
+        #region Player Interaction
+
+        public static event Action<Camera.Axis, float> OnPlayerPosChanged;
+
+        public static void Invoke_OnPlayerPosChanged( Camera.Axis axis, float followThreshold )
+        {
+            OnPlayerPosChanged?.Invoke( axis, followThreshold );
+        }
+
 
         #endregion
     }

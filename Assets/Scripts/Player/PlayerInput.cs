@@ -6,10 +6,11 @@ using OnPipe.Managers;
 
 namespace OnPipe.Player
 {
+    [DisallowMultipleComponent]
     public class PlayerInput : MonoSingleton<PlayerInput>
     {
         #region Public Fields
-
+        [Header("SCREEN POSITIONS")]
         public Vector2 onMouseDownCoordinates;
         public Vector2 onMouseStayCoordinates;
         public Vector2 onMouseUpCoordinates;
@@ -17,6 +18,10 @@ namespace OnPipe.Player
         #endregion
 
         #region Unity Methods
+        private void Awake()
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+        }
 
         private void Update()
         {
