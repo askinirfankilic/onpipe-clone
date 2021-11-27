@@ -160,3 +160,4 @@ Received Import Request.
 Start importing Assets/Prefabs/Corn/Corn.prefab using Guid(aa619dc73afabbc4a8f31430563903c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '226840d7d77b8f32130f5847ee3ffcd6') in 0.020004 seconds 
   Import took 0.023032 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
