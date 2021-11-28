@@ -10,10 +10,15 @@ using UnityEditor;
 
 namespace OnPipe.Player
 {
+
+
     [DisallowMultipleComponent, RequireComponent( typeof( PlayerMovementController ), typeof( PlayerInput ) )]
     public class PlayerBehavior : MonoBehaviour
     {
         #region Public Fields
+
+        public Pipe.PipeSize currentPipeSize;
+
         #endregion
 
         #region Serialized Fields
@@ -49,6 +54,24 @@ namespace OnPipe.Player
         #endregion
 
         #region Public Methods
+
+        public void ChangeMinScale( Pipe.Pipe.PipeType pipeType )
+        {
+            switch ( pipeType.pipeSize )
+            {
+                case Pipe.PipeSize.Small:
+                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
+                    break;
+                case Pipe.PipeSize.Medium:
+                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
+                    break;
+                case Pipe.PipeSize.Large:
+                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
+                    break;
+                default:
+                    break;
+            }
+        }
 
         #endregion
 
@@ -87,15 +110,20 @@ namespace OnPipe.Player
             MinSafeRadius = minimumSafeRadiusChange;
         }
 
+
         #endregion
 
         #region Editor Methods
 
 #if UNITY_EDITOR
 
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
+            Handles.color = Color.red;
+
             Handles.Label( transform.position, text: "Radius: " + MinSafeRadius );
+            Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
+
             Handles.DrawWireDisc( transform.position, transform.up, MinSafeRadius );
         }
 

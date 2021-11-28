@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace OnPipe.Pipe
 {
+
     public enum PipeSize
     {
         Small,
@@ -14,10 +15,25 @@ namespace OnPipe.Pipe
     [DisallowMultipleComponent]
     public class Pipe : MonoBehaviour
     {
-        public PipeSize pipeSize;
-
-        private void Awake()
+        [System.Serializable]
+        public class PipeType
         {
+            public PipeSize pipeSize;
+            public float pipeScale;
+        }
+
+        public PipeType pipeType;
+
+        private void OnTriggerEnter( Collider other )
+        {
+            if ( other.CompareTag(Tags.Player ))
+            {
+                Debug.Log( "ispLAYER" );
+                Player.PlayerBehavior playerBehavior = other.GetComponent<Player.PlayerBehavior>();
+                Managers.EventManager.Invoke_OnMinimumSafeRadiusChange( pipeType.pipeScale );
+                playerBehavior.ChangeMinScale( pipeType );
+            }
+            
         }
 
     }

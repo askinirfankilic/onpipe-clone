@@ -11,9 +11,14 @@ namespace OnPipe
     [CustomEditor( typeof( Player.PlayerBehavior ) )]
     public class PlayerBehaviorEditor : Editor
     {
+        #region Private Fields
 
-        Settings.PlayerBehaviorSettings settings;
+        private Settings.PlayerBehaviorSettings settings;
 
+        #endregion
+
+        #region Unity Methods
+        
         private void OnEnable()
         {
             settings = Resources.Load( "Default Player Behavior" ) as Settings.PlayerBehaviorSettings;
@@ -23,6 +28,7 @@ namespace OnPipe
 
         public override void OnInspectorGUI()
         {
+            base.OnInspectorGUI();
 
             using ( new EditorGUILayout.HorizontalScope() )
             {
@@ -40,6 +46,8 @@ namespace OnPipe
 
 
         }
+
+        #endregion
 
     }
 }
