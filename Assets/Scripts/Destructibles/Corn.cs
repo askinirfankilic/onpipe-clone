@@ -52,6 +52,11 @@ namespace OnPipe.Destructibles
             StartCoroutine( WaitForEndOfParticlePlay() );
         }
 
+
+
+        #endregion
+
+        #region Private Methods
         private IEnumerator WaitForEndOfParticlePlay()
         {
             if ( particle != null && meshRenderer != null )
@@ -62,10 +67,6 @@ namespace OnPipe.Destructibles
                 Destroy( gameObject );
             }
         }
-
-        #endregion
-
-        #region Private Methods
 
         #endregion
 
@@ -81,7 +82,7 @@ namespace OnPipe.Destructibles
 
         private void OnDestroy()
         {
-            Debug.Log( "Destroyed" );
+            Debug.Log( "Destroyed:  " + gameObject.name);
         }
 
 

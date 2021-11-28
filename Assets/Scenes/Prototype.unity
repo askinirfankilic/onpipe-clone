@@ -890,6 +890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 7959024050930448323, guid: b5b4ba5cf04bea34794aa16304dce2c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7959024050930448351, guid: b5b4ba5cf04bea34794aa16304dce2c7, type: 3}
       propertyPath: m_RootOrder
       value: 7
