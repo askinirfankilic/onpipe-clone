@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.00252676
       objectReference: {fileID: 0}
+    - target: {fileID: 8692171222576942437, guid: 59480221c03fa064c9e340b414750063, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8692171222576942438, guid: 59480221c03fa064c9e340b414750063, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1032,8 +1036,16 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8692171222576942442, guid: 59480221c03fa064c9e340b414750063, type: 3}
+      propertyPath: scaleUPDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692171222576942442, guid: 59480221c03fa064c9e340b414750063, type: 3}
       propertyPath: minCurrentRadius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8692171222576942442, guid: 59480221c03fa064c9e340b414750063, type: 3}
+      propertyPath: scaleDOWNDuration
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7378018747297780085, guid: 59480221c03fa064c9e340b414750063, type: 3}

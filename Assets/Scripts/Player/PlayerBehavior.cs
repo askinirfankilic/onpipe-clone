@@ -22,7 +22,8 @@ namespace OnPipe.Player
         #endregion
 
         #region Serialized Fields
-
+        [SerializeField] private float scaleDOWNDuration;
+        [SerializeField] private float scaleUPDuration;
 
         #endregion
 
@@ -96,13 +97,13 @@ namespace OnPipe.Player
         private void ScaleDown( float minRadius )
         {
             Vector3 scaleVector = new Vector3( minRadius, 1, minRadius );
-            m_Transform.DOScale( scaleVector, 0.5f );
+            m_Transform.DOScale( endValue: scaleVector, duration: scaleDOWNDuration );
         }
 
         private void ScaleUp()
         {
             Vector3 scaleVector = Vector3.one;
-            m_Transform.DOScale( scaleVector, 0.5f );
+            m_Transform.DOScale( endValue: scaleVector, duration: scaleUPDuration );
         }
 
         private void UpdateMinimumSafeRadiusChange( float minimumSafeRadiusChange )
