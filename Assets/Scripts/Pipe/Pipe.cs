@@ -18,10 +18,6 @@ namespace OnPipe.Pipe
 
         private void Awake()
         {
-            if ( pipeSize == null )
-            {
-                Debug.LogError( "Pipe Size is null" );
-            }
         }
 
     }

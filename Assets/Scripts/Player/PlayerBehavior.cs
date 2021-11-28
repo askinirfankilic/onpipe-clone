@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace OnPipe.Player
         #endregion
 
         #region Serialized Fields
-
+        [SerializeField] private float minSafeRadius;
         #endregion
 
         #region Private Fields
@@ -55,6 +56,13 @@ namespace OnPipe.Player
         {
             Debug.Log( "Up" );
         }
+
+        private void ScaleDown(float minRadius)
+        {
+            
+        }
+
+        
 
         #endregion
 

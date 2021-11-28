@@ -22,6 +22,7 @@ namespace OnPipe.Destructibles
 
         private ParticleSystem particle;
         private MeshRenderer meshRenderer;
+
         #endregion
 
         #region Properties

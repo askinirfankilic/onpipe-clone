@@ -9,8 +9,7 @@ namespace OnPipe.Player
     {
         #region Public Fields
 
-        public Transform m_Transform;
-
+        [HideInInspector] public Transform m_Transform;
 
         #endregion
 
