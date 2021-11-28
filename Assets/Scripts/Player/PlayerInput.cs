@@ -10,7 +10,7 @@ namespace OnPipe.Player
     public class PlayerInput : MonoSingleton<PlayerInput>
     {
         #region Public Fields
-        [Header("SCREEN POSITIONS")]
+        [Header( "SCREEN POSITIONS" )]
         public Vector2 onMouseDownCoordinates;
         public Vector2 onMouseStayCoordinates;
         public Vector2 onMouseUpCoordinates;
@@ -20,7 +20,9 @@ namespace OnPipe.Player
         #region Unity Methods
         private void Awake()
         {
+#if UNITY_EDITOR
             Cursor.lockState = CursorLockMode.Confined;
+#endif
         }
 
         private void Update()

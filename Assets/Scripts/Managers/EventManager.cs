@@ -41,6 +41,13 @@ namespace OnPipe.Managers
             OnPlayerPosChanged?.Invoke( axis, followThreshold );
         }
 
+        public static event Action<float> OnMinimumSafeRadiusChange;
+
+        public static void Invoke_OnMinimumSafeRadiusChange( float minimumSafeRadiusChange )
+        {
+            OnMinimumSafeRadiusChange?.Invoke( minimumSafeRadiusChange );
+        }
+
 
         #endregion
     }
