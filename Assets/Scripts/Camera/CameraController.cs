@@ -12,9 +12,9 @@ namespace OnPipe.Camera
     [DisallowMultipleComponent]
     public class CameraController : MonoBehaviour
     {
-        #region Enums
+        #region Serialized Fields
 
-
+        [SerializeField] private Vector3 offset;
 
         #endregion
 
@@ -54,13 +54,13 @@ namespace OnPipe.Camera
             switch ( axis )
             {
                 case Axis.X:
-                    m_Transform.position = new Vector3( playerTransform.position.x, m_Transform.position.y, m_Transform.position.z );
+                    m_Transform.position = new Vector3( playerTransform.position.x, m_Transform.position.y, m_Transform.position.z ) + offset;
                     break;
                 case Axis.Y:
-                    m_Transform.position = new Vector3( m_Transform.position.x, playerTransform.position.y, m_Transform.position.z );
+                    m_Transform.position = new Vector3( m_Transform.position.x, playerTransform.position.y, m_Transform.position.z ) + offset;
                     break;
                 case Axis.Z:
-                    m_Transform.position = new Vector3( m_Transform.position.x, m_Transform.position.y, playerTransform.position.z );
+                    m_Transform.position = new Vector3( m_Transform.position.x, m_Transform.position.y, playerTransform.position.z ) + offset;
                     break;
                 default:
                     Debug.LogError( "No axes defined!!" );
