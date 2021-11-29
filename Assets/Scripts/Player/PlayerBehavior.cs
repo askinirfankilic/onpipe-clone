@@ -16,12 +16,13 @@ namespace OnPipe.Player
     public class PlayerBehavior : MonoBehaviour
     {
         #region Public Fields
-
+        [Header("WIN/LOSE")]
         public Pipe.PipeSize currentPipeSize;
 
         #endregion
 
         #region Serialized Fields
+        [Header("CONTROL")]
         [SerializeField] private float scaleDOWNDuration;
         [SerializeField] private float scaleUPDuration;
 

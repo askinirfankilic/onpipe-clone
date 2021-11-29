@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8692171222576942442}
   - component: {fileID: 8692171222576942437}
   - component: {fileID: 8692171222576942436}
-  - component: {fileID: 7378018747297780085}
+  - component: {fileID: 396429878}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b0ef0fe8df520468e6f20c3aa60cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPipeSize: 0
+  scaleDOWNDuration: 0.2
+  scaleUPDuration: 0.2
 --- !u!114 &8692171222576942437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Transform: {fileID: 0}
-  speed: 1
+  speed: 2
 --- !u!114 &8692171222576942436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,8 +79,8 @@ MonoBehaviour:
   onMouseDownCoordinates: {x: 0, y: 0}
   onMouseStayCoordinates: {x: 0, y: 0}
   onMouseUpCoordinates: {x: 0, y: 0}
---- !u!65 &7378018747297780085
-BoxCollider:
+--- !u!64 &396429878
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,9 +89,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.33282357, z: 0.6435932}
-  m_Center: {x: 0, y: 0.0010866225, z: -0.88349646}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4615369339572693336, guid: 4b7c3071140039b42b4cd14318038756, type: 3}
 --- !u!1001 &7841972557235655143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1780586527156431721, guid: 11445c0ff9186684fbb066cbceecfeb2, type: 3}
       propertyPath: m_Name
-      value: PlayerVisual
+      value: Player Visual
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11445c0ff9186684fbb066cbceecfeb2, type: 3}
