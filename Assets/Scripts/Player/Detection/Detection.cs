@@ -8,30 +8,67 @@ namespace OnPipe.Player.Detection
     {
         #region Serialized Fields
 
-        [SerializeField, Range(0.01f, 1f)] private float detectionRange;
+        [SerializeField, Range( 0.01f, 1f )] private float detectionRange;
 
         #endregion
+        #region Private Fields
 
+        private int layerMask;
+        private PlayerBehavior playerBehavior;
+
+        #endregion
+        
         #region Unity Methods
+        
+        private void Awake()
+        {
+            //Layermask preparation
+            string cornLayer = LayerMask.LayerToName( Layers.Corn );
+            string enemyLayer = LayerMask.LayerToName( Layers.Enemy );
+            layerMask = LayerMask.GetMask( cornLayer, enemyLayer );
+
+            playerBehavior = GetComponentInParent<PlayerBehavior>();
+        }
+        
         private void FixedUpdate()
         {
-            int layerMask = 1 << Layers.Corn;
-
-            RaycastHit hit;
-            if ( Physics.Raycast(transform.position, transform.up, out hit, detectionRange, layerMask ))
-            {
-                Destructibles.Corn corn = hit.transform.GetComponent<Destructibles.Corn>();
-                corn.DestroyItself();
-            }
+            Detect();
         }
 
+
         #region Editor Methods
+        
         private void OnDrawGizmos()
         {
             Gizmos.DrawRay( transform.position, transform.up * detectionRange );
         }
+        
         #endregion
+        
         #endregion
+        
+        #region Private Methods
 
+        private void Detect()
+        {
+
+            RaycastHit hit;
+            if ( Physics.Raycast( transform.position, transform.up, out hit, detectionRange, layerMask ) )
+            {
+                if ( hit.transform.CompareTag( Tags.Corn ) )
+                {
+                    Destructibles.Corn corn = hit.transform.GetComponent<Destructibles.Corn>();
+                    corn.DestroyItself();
+                }
+                else if ( hit.transform.CompareTag( Tags.Enemy ) )
+                {
+                    playerBehavior.DestroyItself();
+                }
+
+            }
+        }
+
+
+        #endregion
     }
 }

@@ -28,7 +28,6 @@ namespace OnPipe.Pipe
         {
             if ( other.CompareTag(Tags.Player ))
             {
-                Debug.Log( "ispLAYER" );
                 Player.PlayerBehavior playerBehavior = other.GetComponent<Player.PlayerBehavior>();
                 Managers.EventManager.Invoke_OnMinimumSafeRadiusChange( pipeType.pipeScale );
                 playerBehavior.ChangeMinScale( pipeType );

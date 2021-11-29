@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace OnPipe.Destructibles
 {
-    public class Corn : MonoBehaviour, IDestructible
+    public class Corn : MonoBehaviour, Interfaces.IDestructible
     {
         #region Public Fields
 
@@ -75,7 +75,6 @@ namespace OnPipe.Destructibles
 
         private void OnDestroy()
         {
-            Debug.Log( "Destroyed:  " + gameObject.name);
         }
 
 

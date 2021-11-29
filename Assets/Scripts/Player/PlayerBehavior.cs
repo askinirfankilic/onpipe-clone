@@ -13,19 +13,22 @@ namespace OnPipe.Player
 
 
     [DisallowMultipleComponent, RequireComponent( typeof( PlayerMovementController ), typeof( PlayerInput ) )]
-    public class PlayerBehavior : MonoBehaviour
+    public class PlayerBehavior : MonoBehaviour, Interfaces.IDestructible
     {
         #region Public Fields
-        [Header("WIN/LOSE")]
+        [Header( "WIN/LOSE" )]
         public Pipe.PipeSize currentPipeSize;
 
         #endregion
 
         #region Serialized Fields
-        [Header("CONTROL")]
+        [Header( "CONTROL" )]
         [SerializeField] private float scaleDOWNDuration;
         [SerializeField] private float scaleUPDuration;
 
+        [Header( "REFERENCES" )]
+        [SerializeField] private MeshRenderer playerVisualRenderer;
+        [SerializeField] private ParticleSystem playerDeathParticle;
         #endregion
 
         #region Private Fields
@@ -75,6 +78,11 @@ namespace OnPipe.Player
             }
         }
 
+        public void DestroyItself()
+        {
+            StartCoroutine( WaitForEndOfParticlePlay() );
+        }
+
         #endregion
 
         #region Private Methods
@@ -86,7 +94,6 @@ namespace OnPipe.Player
 
         private void OnPlayerInputStay()
         {
-            Debug.Log( "Move" );
 
         }
 
@@ -112,6 +119,17 @@ namespace OnPipe.Player
             MinSafeRadius = minimumSafeRadiusChange;
         }
 
+        private IEnumerator WaitForEndOfParticlePlay()
+        {
+            Destroy( gameObject );
+            if ( playerDeathParticle != null && playerVisualRenderer != null )
+            {
+                playerVisualRenderer.enabled = false;
+                playerDeathParticle.Play();
+                yield return new WaitForSeconds( playerDeathParticle.main.duration );
+                Destroy( gameObject );
+            }
+        }
 
         #endregion
 
@@ -153,5 +171,7 @@ namespace OnPipe.Player
             Managers.EventManager.OnMinimumSafeRadiusChange -= UpdateMinimumSafeRadiusChange;
 
         }
+
+
     }
 }
