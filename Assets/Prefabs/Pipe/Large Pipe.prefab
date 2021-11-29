@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipeType:
     pipeSize: 2
-    pipeScale: 0.75
+    pipeScale: 0.65
 --- !u!33 &2608707268698576564
 MeshFilter:
   m_ObjectHideFlags: 0

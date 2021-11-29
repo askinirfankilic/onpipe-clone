@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OnPipe
+namespace OnPipe.Map
 {
     public class FinishLoop : MonoBehaviour
     {

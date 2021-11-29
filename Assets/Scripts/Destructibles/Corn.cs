@@ -36,14 +36,6 @@ namespace OnPipe.Destructibles
             particle = particlePrefab.GetComponent<ParticleSystem>();
             meshRenderer = visualPrefab.GetComponent<MeshRenderer>();
         }
-        private void OnTriggerEnter( Collider other )
-        {
-            if ( other.CompareTag( Tags.Player ) )
-            {
-                DestroyItself();
-            }
-        }
-
         #endregion
 
         #region Public Methods

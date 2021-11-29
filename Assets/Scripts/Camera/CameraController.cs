@@ -38,11 +38,11 @@ namespace OnPipe.Camera
 
         }
 
-
         private void Start()
         {
             playerTransform = Player.PlayerMovementController.Instance.m_Transform;
         }
+
         #endregion
 
 
