@@ -80,6 +80,7 @@ namespace OnPipe.Player
 
         public void DestroyItself()
         {
+            playerMovement.Stop();
             StartCoroutine( WaitForEndOfParticlePlay() );
         }
 
@@ -121,7 +122,6 @@ namespace OnPipe.Player
 
         private IEnumerator WaitForEndOfParticlePlay()
         {
-            Destroy( gameObject );
             if ( playerDeathParticle != null && playerVisualRenderer != null )
             {
                 playerVisualRenderer.enabled = false;
@@ -158,7 +158,7 @@ namespace OnPipe.Player
             Managers.EventManager.OnMouseInputDown += OnPlayerInputDown;
             Managers.EventManager.OnMouseInputStay += OnPlayerInputStay;
             Managers.EventManager.OnMouseInputUp += OnPlayerInputUp;
-            Managers.EventManager.OnMinimumSafeRadiusChange += UpdateMinimumSafeRadiusChange;
+            Managers.EventManager.OnMinimumSafeRadiusChanged += UpdateMinimumSafeRadiusChange;
         }
 
 
@@ -168,7 +168,7 @@ namespace OnPipe.Player
             Managers.EventManager.OnMouseInputDown -= OnPlayerInputDown;
             Managers.EventManager.OnMouseInputStay -= OnPlayerInputStay;
             Managers.EventManager.OnMouseInputUp -= OnPlayerInputUp;
-            Managers.EventManager.OnMinimumSafeRadiusChange -= UpdateMinimumSafeRadiusChange;
+            Managers.EventManager.OnMinimumSafeRadiusChanged -= UpdateMinimumSafeRadiusChange;
 
         }
 

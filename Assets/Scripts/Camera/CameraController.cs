@@ -57,7 +57,7 @@ namespace OnPipe.Camera
                     m_Transform.position = new Vector3( playerTransform.position.x, m_Transform.position.y, m_Transform.position.z ) + offset;
                     break;
                 case Axis.Y:
-                    //m_Transform.position = Vector3.Lerp( m_Transform.position, new Vector3( m_Transform.position.x, playerTransform.position.y, m_Transform.position.z ) + offset, Time.deltaTime * 3f );
+                    //m_Transform.position = Vector3.Lerp( m_Transform.position, new Vector3( m_Transform.position.x, playerTransform.position.y, m_Transform.position.z ) + offset, Time.deltaTime * 2f );
                     m_Transform.position = new Vector3( m_Transform.position.x, playerTransform.position.y, m_Transform.position.z ) + offset;
                     break;
                 case Axis.Z:

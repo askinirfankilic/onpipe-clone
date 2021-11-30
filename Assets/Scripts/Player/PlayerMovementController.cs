@@ -16,7 +16,7 @@ namespace OnPipe.Player
         #region Serialized Fields
 
         [SerializeField] private float speed;
-
+        [SerializeField] private bool isStopped = false;
 
         #endregion
 
@@ -39,8 +39,16 @@ namespace OnPipe.Player
 
         private void Update()
         {
-            Move();
-            Managers.EventManager.Invoke_OnPlayerPosChanged( axis: Camera.Axis.Y, followThreshold: 0 );
+            //If player has stopped dont change pos and do onplayermovestopped. 
+            if ( isStopped )
+            {
+                Managers.EventManager.Invoke_OnPlayerMoveStopped();
+            }
+            else
+            {
+                Move();
+                Managers.EventManager.Invoke_OnPlayerPosChanged( axis: Camera.Axis.Y, followThreshold: 0 );
+            }
         }
 
         #endregion
@@ -49,6 +57,11 @@ namespace OnPipe.Player
         public void Move()
         {
             m_Transform.Translate( Vector3.up * speed * Time.deltaTime );
+        }
+
+        public void Stop()
+        {
+            isStopped = true;
         }
 
         #endregion

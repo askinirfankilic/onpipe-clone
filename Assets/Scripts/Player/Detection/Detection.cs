@@ -15,6 +15,7 @@ namespace OnPipe.Player.Detection
 
         private int layerMask;
         private PlayerBehavior playerBehavior;
+        private bool playerAlreadyDestroyed = false;
 
         #endregion
         
@@ -60,9 +61,10 @@ namespace OnPipe.Player.Detection
                     Destructibles.Corn corn = hit.transform.GetComponent<Destructibles.Corn>();
                     corn.DestroyItself();
                 }
-                else if ( hit.transform.CompareTag( Tags.Enemy ) )
+                else if ( hit.transform.CompareTag( Tags.Enemy ) && !playerAlreadyDestroyed)
                 {
                     playerBehavior.DestroyItself();
+                    playerAlreadyDestroyed = true;
                 }
 
             }
