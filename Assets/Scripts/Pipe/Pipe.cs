@@ -26,13 +26,15 @@ namespace OnPipe.Pipe
 
         private void OnTriggerEnter( Collider other )
         {
-            if ( other.CompareTag(Tags.Player ))
+            if ( other.CompareTag( Tags.Player ) )
             {
                 Player.PlayerBehavior playerBehavior = other.GetComponent<Player.PlayerBehavior>();
                 Managers.EventManager.Invoke_OnMinimumSafeRadiusChange( pipeType.pipeScale );
-                playerBehavior.ChangeMinScale( pipeType );
+                playerBehavior.RefreshPipeProperties( playerBehavior.currentPipeSize, pipeType );
+                //update current pipe size
+                playerBehavior.currentPipeSize = pipeType.pipeSize;
             }
-            
+
         }
 
     }

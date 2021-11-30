@@ -36,6 +36,7 @@ namespace OnPipe.Player
         private PlayerMovementController playerMovement;
         private Transform m_Transform;
         private static float minSafeRadius;
+        private bool canScaleDown;
 
 
 
@@ -60,7 +61,29 @@ namespace OnPipe.Player
 
         #region Public Methods
 
-        public void ChangeMinScale( Pipe.Pipe.PipeType pipeType )
+        public void RefreshPipeProperties( Pipe.PipeSize previousPipeSize, Pipe.Pipe.PipeType pipeType )
+        {
+            ChangeMinScale( pipeType );
+            if ( previousPipeSize == Pipe.PipeSize.Large && pipeType.pipeSize == Pipe.PipeSize.Medium )
+            {
+                canScaleDown = true;
+                // previous large and current is medium
+            }
+            else if ( previousPipeSize == Pipe.PipeSize.Large && pipeType.pipeSize == Pipe.PipeSize.Small )
+            {
+                canScaleDown = true;
+
+                // previous large and current is small
+            }
+            else if ( previousPipeSize == Pipe.PipeSize.Medium && pipeType.pipeSize == Pipe.PipeSize.Small )
+            {
+                canScaleDown = true;
+
+                //previous medium and current is small
+            }
+        }
+
+        private void ChangeMinScale( Pipe.Pipe.PipeType pipeType )
         {
             switch ( pipeType.pipeSize )
             {
@@ -95,7 +118,11 @@ namespace OnPipe.Player
 
         private void OnPlayerInputStay()
         {
-
+            if ( canScaleDown )
+            {
+                ScaleDown( minSafeRadius );
+                canScaleDown = false;
+            }
         }
 
         private void OnPlayerInputUp()
@@ -141,7 +168,7 @@ namespace OnPipe.Player
         {
             Handles.color = Color.red;
 
-            Handles.Label( transform.position, text: "Radius: " + MinSafeRadius );
+            Handles.Label( transform.position, text: "Minimum Safe Radius: " + MinSafeRadius );
             Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
 
             Handles.DrawWireDisc( transform.position, transform.up, MinSafeRadius );
