@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5287138533438094204}
   - component: {fileID: 8714448586256897604}
   - component: {fileID: 2822510461317207664}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Empty Small Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

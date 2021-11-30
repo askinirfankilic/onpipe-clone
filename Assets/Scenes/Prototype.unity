@@ -1145,13 +1145,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8119302351022385053, guid: 59480221c03fa064c9e340b414750063, type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8119302351022385053, guid: 59480221c03fa064c9e340b414750063, type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 10
+    - target: {fileID: 526002111, guid: 59480221c03fa064c9e340b414750063, type: 3}
+      propertyPath: detectionRange
+      value: 0.237
       objectReference: {fileID: 0}
     - target: {fileID: 8692171222576942438, guid: 59480221c03fa064c9e340b414750063, type: 3}
       propertyPath: m_Name

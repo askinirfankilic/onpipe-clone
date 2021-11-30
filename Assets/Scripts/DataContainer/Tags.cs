@@ -5,6 +5,7 @@ namespace OnPipe
         public static string Player = "Player";
         public static string Corn = "Corn";
         public static string Enemy = "Enemy";
+        public static string Pipe = "Pipe";
     }
 }
 

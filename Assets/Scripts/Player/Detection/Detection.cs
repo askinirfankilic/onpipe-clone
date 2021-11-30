@@ -18,19 +18,20 @@ namespace OnPipe.Player.Detection
         private bool playerAlreadyDestroyed = false;
 
         #endregion
-        
+
         #region Unity Methods
-        
+
         private void Awake()
         {
             //Layermask preparation
             string cornLayer = LayerMask.LayerToName( Layers.Corn );
             string enemyLayer = LayerMask.LayerToName( Layers.Enemy );
-            layerMask = LayerMask.GetMask( cornLayer, enemyLayer );
+            string pipeLayer = LayerMask.LayerToName( Layers.Pipe );
+            layerMask = LayerMask.GetMask( cornLayer, enemyLayer, pipeLayer );
 
             playerBehavior = GetComponentInParent<PlayerBehavior>();
         }
-        
+
         private void FixedUpdate()
         {
             Detect();
@@ -38,16 +39,16 @@ namespace OnPipe.Player.Detection
 
 
         #region Editor Methods
-        
+
         private void OnDrawGizmos()
         {
             Gizmos.DrawRay( transform.position, transform.up * detectionRange );
         }
-        
+
         #endregion
-        
+
         #endregion
-        
+
         #region Private Methods
 
         private void Detect()
@@ -61,12 +62,17 @@ namespace OnPipe.Player.Detection
                     Destructibles.Corn corn = hit.transform.GetComponent<Destructibles.Corn>();
                     corn.DestroyItself();
                 }
-                else if ( hit.transform.CompareTag( Tags.Enemy ) && !playerAlreadyDestroyed)
+                else if ( hit.transform.CompareTag( Tags.Enemy ) && !playerAlreadyDestroyed )
                 {
                     playerBehavior.DestroyItself();
                     playerAlreadyDestroyed = true;
                 }
-
+                else if ( hit.transform.CompareTag( Tags.Pipe ) && !playerAlreadyDestroyed )
+                {
+                    //same code usage is intended
+                    playerBehavior.DestroyItself();
+                    playerAlreadyDestroyed = true;
+                }
             }
         }
 
