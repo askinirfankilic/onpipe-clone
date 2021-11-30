@@ -50,7 +50,7 @@ ParticleSystem:
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
-  autoRandomSeed: 0
+  autoRandomSeed: 1
   useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
@@ -107,7 +107,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -743,7 +743,7 @@ ParticleSystem:
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 0
-    sphericalDirectionAmount: 0
+    sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
       value: 1.24
@@ -1191,7 +1191,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2023,7 +2023,7 @@ ParticleSystem:
     radial:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2244,7 +2244,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2297,7 +2297,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2350,7 +2350,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 50
       minScalar: 0
       maxCurve:
         serializedVersion: 2
