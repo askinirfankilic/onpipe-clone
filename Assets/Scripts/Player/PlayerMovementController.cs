@@ -46,7 +46,7 @@ namespace OnPipe.Player
             }
             else
             {
-                Move();
+                Move( speed );
                 Managers.EventManager.Invoke_OnPlayerPosChanged( axis: Camera.Axis.Y, followThreshold: 0 );
             }
         }
@@ -54,7 +54,7 @@ namespace OnPipe.Player
         #endregion
         #region Public Methods
 
-        public void Move()
+        public void Move( float speed )
         {
             m_Transform.Translate( Vector3.up * speed * Time.deltaTime );
         }
@@ -64,12 +64,28 @@ namespace OnPipe.Player
             isStopped = true;
         }
 
+
+
         #endregion
 
         #region Private Methods
-
+        private void OnFinish()
+        {
+            //move faster
+            speed += 5f;
+        }
 
         #endregion
+
+        private void OnEnable()
+        {
+            Managers.EventManager.OnLevelFinished += OnFinish;
+        }
+
+        private void OnDisable()
+        {
+            Managers.EventManager.OnLevelFinished -= OnFinish;
+        }
 
     }
 }

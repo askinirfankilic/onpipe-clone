@@ -48,6 +48,19 @@ namespace OnPipe.Managers
         {
             OnPlayerMoveStopped?.Invoke();
         }
+
+        public static event Action OnLevelStarted;
+        public static void Invoke_OnLevelStarted()
+        {
+            OnLevelStarted?.Invoke();
+        }
+
+        public static event Action OnLevelFinished;
+        public static void Invoke_OnLevelFinished()
+        {
+            OnLevelFinished?.Invoke();
+        }
+
         #endregion
     }
 }

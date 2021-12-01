@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace OnPipe.Camera
 {
@@ -12,9 +13,18 @@ namespace OnPipe.Camera
     [DisallowMultipleComponent]
     public class CameraController : MonoBehaviour
     {
+        [System.Serializable]
+        public class FinishCamera
+        {
+            public float finishYOffset;
+            public Ease onFinishEase;
+            public float duration;
+        }
+
         #region Serialized Fields
 
         [SerializeField] private Vector3 offset;
+        [SerializeField] private FinishCamera finishCamera;
 
         #endregion
 
@@ -35,7 +45,7 @@ namespace OnPipe.Camera
         private void Awake()
         {
             m_Transform = transform;
-
+            DOTween.Init();
         }
 
         private void Start()
@@ -45,6 +55,15 @@ namespace OnPipe.Camera
 
         #endregion
 
+        #region Public Methods
+
+        private void OnFinish()
+        {
+            Managers.EventManager.OnPlayerPosChanged -= FollowPlayerOnAxis;
+            m_Transform.DOMoveY( m_Transform.position.y + finishCamera.finishYOffset, finishCamera.duration ).SetEase( finishCamera.onFinishEase );
+        }
+
+        #endregion
 
         #region Private Methods
 
@@ -73,12 +92,15 @@ namespace OnPipe.Camera
 
         private void OnEnable()
         {
+
             Managers.EventManager.OnPlayerPosChanged += FollowPlayerOnAxis;
+            Managers.EventManager.OnLevelFinished += OnFinish;
         }
 
         private void OnDisable()
         {
             Managers.EventManager.OnPlayerPosChanged -= FollowPlayerOnAxis;
+            Managers.EventManager.OnLevelFinished -= OnFinish;
         }
     }
 }

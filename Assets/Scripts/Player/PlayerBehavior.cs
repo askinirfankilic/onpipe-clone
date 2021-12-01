@@ -30,6 +30,7 @@ namespace OnPipe.Player
         [Header( "REFERENCES" )]
         [SerializeField] private MeshRenderer playerVisualRenderer;
         [SerializeField] private ParticleSystem playerDeathParticle;
+        [SerializeField] private ParticleSystem playerWindlinesParticle;
         #endregion
 
         #region Private Fields
@@ -114,6 +115,7 @@ namespace OnPipe.Player
         {
             playerMovement.Stop();
             playerAnim.SetTrigger( failOrWinAnimHash );
+            playerWindlinesParticle.Stop();
             StartCoroutine( WaitForEndOfParticlePlay() );
         }
 

@@ -13,7 +13,6 @@ namespace OnPipe.Map
     public class Loop : MonoBehaviour
     {
         #region Public Fields
-        public bool isLevelStarted = false;
         public Transform startTransform;
         public Transform finishTransform;
         #endregion
