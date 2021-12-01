@@ -18,6 +18,7 @@ namespace OnPipe.Player
         #region Public Fields
         [Header( "WIN/LOSE" )]
         public Pipe.PipeSize currentPipeSize;
+        [HideInInspector]public Animator playerAnim;
 
         #endregion
 
@@ -38,7 +39,9 @@ namespace OnPipe.Player
         private static float minSafeRadius;
         private bool canScaleDown;
 
-
+        int scaleDownAnimHash;
+        int scaleUpAnimHash;
+        int failOrWinAnimHash;
 
         #endregion
 
@@ -55,6 +58,12 @@ namespace OnPipe.Player
             m_Transform = transform;
             playerMovement = GetComponent<PlayerMovementController>();
             DOTween.Init();
+
+            playerAnim = GetComponent<Animator>();
+            scaleDownAnimHash = Animator.StringToHash( AnimParams.ScaleDown );
+            scaleUpAnimHash = Animator.StringToHash( AnimParams.ScaleUp );
+            failOrWinAnimHash = Animator.StringToHash( AnimParams.FailOrWin );
+
         }
 
         #endregion
@@ -104,12 +113,14 @@ namespace OnPipe.Player
         public void DestroyItself()
         {
             playerMovement.Stop();
+            playerAnim.SetTrigger( failOrWinAnimHash );
             StartCoroutine( WaitForEndOfParticlePlay() );
         }
 
         public void OnFinish()
         {
             Debug.Log( "Finish" );
+            playerAnim.SetTrigger( failOrWinAnimHash );
         }
 
         #endregion
@@ -119,6 +130,7 @@ namespace OnPipe.Player
         private void OnPlayerInputDown()
         {
             ScaleDown( MinSafeRadius );
+            playerAnim.SetTrigger( scaleDownAnimHash );
         }
 
         private void OnPlayerInputStay()
@@ -133,6 +145,8 @@ namespace OnPipe.Player
         private void OnPlayerInputUp()
         {
             ScaleUp();
+            playerAnim.SetTrigger( scaleUpAnimHash );
+
         }
 
         private void ScaleDown( float minRadius )

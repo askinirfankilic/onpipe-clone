@@ -31,7 +31,7 @@ namespace OnPipe.Map
         private void OnDrawGizmosSelected()
         {
 
-            Handles.zTest = UnityEngine.Rendering.CompareFunction.LessEqual;
+            Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
 
             Vector3 loopSystemPos = transform.position;
             Vector3 startPos = startTransform.position;
