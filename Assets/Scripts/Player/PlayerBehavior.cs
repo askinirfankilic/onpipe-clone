@@ -107,6 +107,11 @@ namespace OnPipe.Player
             StartCoroutine( WaitForEndOfParticlePlay() );
         }
 
+        public void OnFinish()
+        {
+            Debug.Log( "Finish" );
+        }
+
         #endregion
 
         #region Private Methods
