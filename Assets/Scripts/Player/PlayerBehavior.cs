@@ -133,6 +133,7 @@ namespace OnPipe.Player
         {
             ScaleDown( MinSafeRadius );
             playerAnim.SetTrigger( scaleDownAnimHash );
+            playerWindlinesParticle.Play();
         }
 
         private void OnPlayerInputStay()
