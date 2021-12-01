@@ -1,17 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace OnPipe
+namespace OnPipe.UI
 {
+
+    [DisallowMultipleComponent]
     public class UIManager : MonoBehaviour
     {
+        [System.Serializable]
+        public class UIPanels
+        {
+            public GameObject home;
+            public GameObject gameplay;
+            public GameObject fail;
+            public GameObject success;
+        }
+
         #region Serialized Fields
 
-        [SerializeField] private GameObject home;
-        [SerializeField] private GameObject gameplay;
-        [SerializeField] private GameObject fail;
-        [SerializeField] private GameObject success;
+        [SerializeField] UIPanels uIPanels;
+
+        #endregion
+
+        #region Unity Methods
+
+        private void Awake()
+        {
+            if ( uIPanels == null )
+            {
+                Debug.LogError( "Null reference" );
+                return;
+            }
+
+            uIPanels.gameplay.SetActive( true );
+        }
 
         #endregion
     }

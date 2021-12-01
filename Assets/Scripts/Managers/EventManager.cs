@@ -49,6 +49,10 @@ namespace OnPipe.Managers
             OnPlayerMoveStopped?.Invoke();
         }
 
+        #endregion
+
+        #region Level
+
         public static event Action OnLevelStarted;
         public static void Invoke_OnLevelStarted()
         {
@@ -59,6 +63,32 @@ namespace OnPipe.Managers
         public static void Invoke_OnLevelFinished()
         {
             OnLevelFinished?.Invoke();
+        }
+
+        #endregion
+
+        #region Corn Interaction
+
+        public static event Action OnCornDetection;
+        public static void Invoke_OnCornDetection()
+        {
+            OnCornDetection?.Invoke();
+        }
+
+        public static event Action<int> OnCornCalculation;
+        public static void Invoke_OnCornCalculation( int totalCornCount )
+        {
+            OnCornCalculation?.Invoke( totalCornCount );
+        }
+
+        #endregion
+
+        #region Game Manager
+
+        public static event Action OnGameStarted;
+        public static void Invoke_OnGameStarted()
+        {
+            OnGameStarted?.Invoke();
         }
 
         #endregion

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace OnPipe.Player
@@ -21,7 +19,6 @@ namespace OnPipe.Player
         #endregion
 
         #region Private Fields
-
 
         #endregion
 
@@ -48,6 +45,7 @@ namespace OnPipe.Player
             {
                 Move( speed );
                 Managers.EventManager.Invoke_OnPlayerPosChanged( axis: Camera.Axis.Y, followThreshold: 0 );
+
             }
         }
 

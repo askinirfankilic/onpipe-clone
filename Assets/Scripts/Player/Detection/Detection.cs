@@ -17,6 +17,7 @@ namespace OnPipe.Player.Detection
         private PlayerBehavior playerBehavior;
         private bool playerAlreadyDestroyed = false;
 
+        private int previousCornHash;
         #endregion
 
         #region Unity Methods
@@ -57,8 +58,10 @@ namespace OnPipe.Player.Detection
             RaycastHit hit;
             if ( Physics.Raycast( transform.position, transform.up, out hit, detectionRange, layerMask ) )
             {
-                if ( hit.transform.CompareTag( Tags.Corn ) )
+                if ( hit.transform.CompareTag( Tags.Corn ) && hit.transform.GetInstanceID() != previousCornHash )
                 {
+                    previousCornHash = hit.transform.GetInstanceID();
+                    Managers.EventManager.Invoke_OnCornDetection();
                     Destructibles.Corn corn = hit.transform.GetComponent<Destructibles.Corn>();
                     corn.DestroyItself();
                 }

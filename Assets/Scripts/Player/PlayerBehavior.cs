@@ -200,8 +200,6 @@ namespace OnPipe.Player
 
         #endregion
 
-
-
         private void OnEnable()
         {
             Managers.EventManager.OnMouseInputDown += OnPlayerInputDown;
