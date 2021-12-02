@@ -1426,6 +1426,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3451121921012902842, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922002395093, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922002395093, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922002395093, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 101.922485
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922002395093, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 117.66998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922164903641, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922164903641, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3451121922164903643, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1512,6 +1540,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3451121922164903655, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451121922197852166, guid: 45fb399b2c0c6984da0b71c27b4a9f11, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
