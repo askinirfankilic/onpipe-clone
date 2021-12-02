@@ -11,15 +11,15 @@ namespace OnPipe.UI
         [System.Serializable]
         public class UIPanels
         {
-            public GameObject home;
-            public GameObject gameplay;
+            //home and gameplay panels are interbbedded in the base game
+            public GameObject homeGameplay;
             public GameObject fail;
             public GameObject success;
         }
 
         #region Public Fields
 
-        public bool nonGameplayUIIsOpen = false;
+        public bool nonGameplayUIIsOpen = true;
 
         #endregion
 
@@ -39,39 +39,44 @@ namespace OnPipe.UI
                 return;
             }
 
-            uIPanels.gameplay.SetActive( true );
+            uIPanels.homeGameplay.SetActive( true );
         }
 
         private async void LoadFail()
         {
             nonGameplayUIIsOpen = true;
-            uIPanels.gameplay.SetActive( false );
+            uIPanels.homeGameplay.SetActive( false );
 
-            //await 0.5 second before fail panel active
-            await Task.Delay( TimeSpan.FromSeconds( 1 ) );
+            //await ... seconds before fail panel active
+            await Task.Delay( TimeSpan.FromSeconds( 0.5f ) );
 
             uIPanels.fail.SetActive( true );
         }
 
-        private void LoadSuccess()
+        private async void LoadSuccess()
         {
+            
+            uIPanels.homeGameplay.SetActive( false );
 
+            //await ... seconds before success panel active
+            await Task.Delay( TimeSpan.FromSeconds( 1.5f ) );
+
+            uIPanels.success.SetActive( true );
+            nonGameplayUIIsOpen = true;
         }
 
-        private void LoadGameplay()
-        {
-
-        }
+        
 
         private void OnEnable()
         {
             Managers.EventManager.OnPlayerDestroyed += LoadFail;
+            Managers.EventManager.OnLevelFinished += LoadSuccess;
         }
 
         private void OnDisable()
         {
             Managers.EventManager.OnPlayerDestroyed -= LoadFail;
-
+            Managers.EventManager.OnLevelFinished -= LoadSuccess;
         }
 
 

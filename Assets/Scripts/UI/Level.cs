@@ -22,6 +22,9 @@ namespace OnPipe.UI
         private void OnEnable()
         {
             Managers.EventManager.OnGameStarted += AssignLevelText;
+            
+            //for non gameplay level texts
+            AssignLevelText();
         }
 
         private void OnDisable()

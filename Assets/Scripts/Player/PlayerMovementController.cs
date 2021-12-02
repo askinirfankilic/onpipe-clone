@@ -36,6 +36,12 @@ namespace OnPipe.Player
 
         private void Update()
         {
+
+            if ( UI.UIManager.Instance.nonGameplayUIIsOpen )
+            {
+                return;
+            }
+
             //If player has stopped dont change pos and do onplayermovestopped. 
             if ( isStopped )
             {
@@ -62,6 +68,10 @@ namespace OnPipe.Player
             isStopped = true;
         }
 
+        public void StartToMove()
+        {
+            isStopped = false;
+        }
 
 
         #endregion
@@ -77,11 +87,13 @@ namespace OnPipe.Player
 
         private void OnEnable()
         {
+            Managers.EventManager.OnLevelStarted += StartToMove;
             Managers.EventManager.OnLevelFinished += OnFinish;
         }
 
         private void OnDisable()
         {
+            Managers.EventManager.OnLevelStarted -= StartToMove;
             Managers.EventManager.OnLevelFinished -= OnFinish;
         }
 
