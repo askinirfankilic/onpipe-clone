@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace OnPipe.Managers
 {
@@ -33,6 +31,18 @@ namespace OnPipe.Managers
             EventManager.Invoke_OnGameStarted();
 
             DontDestroyOnLoad( gameObject );
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Reload prototype scene.
+        /// </summary>
+        public void RestartGame()
+        {
+            SceneManager.LoadScene( sceneBuildIndex: 0 );
         }
 
         #endregion

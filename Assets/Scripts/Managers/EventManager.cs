@@ -49,6 +49,13 @@ namespace OnPipe.Managers
             OnPlayerMoveStopped?.Invoke();
         }
 
+        public static event Action OnPlayerDestroyed;
+        public static void Invoke_OnPlayerDestroyed()
+        {
+            OnPlayerDestroyed?.Invoke();
+        }
+
+
         #endregion
 
         #region Level
@@ -90,6 +97,7 @@ namespace OnPipe.Managers
         {
             OnGameStarted?.Invoke();
         }
+        
 
         #endregion
     }

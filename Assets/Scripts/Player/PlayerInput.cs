@@ -27,6 +27,9 @@ namespace OnPipe.Player
 
         private void Update()
         {
+            //if UI is active don't get any input
+            if ( UI.UIManager.Instance.nonGameplayUIIsOpen )
+                return;
 
             if ( Input.GetMouseButtonDown( 0 ) )
             {

@@ -69,12 +69,15 @@ namespace OnPipe.Player.Detection
                 {
                     playerBehavior.DestroyItself();
                     playerAlreadyDestroyed = true;
+                    Managers.EventManager.Invoke_OnPlayerDestroyed();
                 }
                 else if ( hit.transform.CompareTag( Tags.Pipe ) && !playerAlreadyDestroyed )
                 {
                     //same code usage is intended
                     playerBehavior.DestroyItself();
                     playerAlreadyDestroyed = true;
+                    Managers.EventManager.Invoke_OnPlayerDestroyed();
+
                 }
             }
         }
