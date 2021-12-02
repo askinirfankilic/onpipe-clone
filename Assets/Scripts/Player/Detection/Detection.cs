@@ -11,13 +11,14 @@ namespace OnPipe.Player.Detection
         [SerializeField, Range( 0.01f, 1f )] private float detectionRange;
 
         #endregion
+
         #region Private Fields
 
         private int layerMask;
         private PlayerBehavior playerBehavior;
         private bool playerAlreadyDestroyed = false;
-
         private int previousCornHash;
+        
         #endregion
 
         #region Unity Methods
@@ -52,6 +53,9 @@ namespace OnPipe.Player.Detection
 
         #region Private Methods
 
+        /// <summary>
+        /// Player detection logic.
+        /// </summary>
         private void Detect()
         {
 

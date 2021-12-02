@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace OnPipe.Enemy
 {
+    /// <summary>
+    /// Defines a killable enemy when interacted.
+    /// </summary>
     [DisallowMultipleComponent]
     public class Enemy : MonoBehaviour, Interfaces.IKillable
     {

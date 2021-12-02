@@ -42,6 +42,10 @@ namespace OnPipe.UI
             uIPanels.homeGameplay.SetActive( true );
         }
 
+        #endregion
+
+        #region Private Methods
+
         private async void LoadFail()
         {
             nonGameplayUIIsOpen = true;
@@ -55,7 +59,7 @@ namespace OnPipe.UI
 
         private async void LoadSuccess()
         {
-            
+
             uIPanels.homeGameplay.SetActive( false );
 
             //await ... seconds before success panel active
@@ -65,7 +69,7 @@ namespace OnPipe.UI
             nonGameplayUIIsOpen = true;
         }
 
-        
+        #endregion
 
         private void OnEnable()
         {
@@ -80,6 +84,5 @@ namespace OnPipe.UI
         }
 
 
-        #endregion
     }
 }

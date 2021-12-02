@@ -5,12 +5,11 @@ using UnityEngine;
 
 namespace OnPipe.Destructibles
 {
+    /// <summary>
+    /// Defines a corn that can be destructible when interacted.
+    /// </summary>
     public class Corn : MonoBehaviour, Interfaces.IDestructible
     {
-        #region Public Fields
-
-        #endregion
-
         #region Serialized Fields
 
         [SerializeField] private GameObject particlePrefab;
@@ -25,10 +24,6 @@ namespace OnPipe.Destructibles
 
         #endregion
 
-        #region Properties
-
-        #endregion
-
         #region Unity Methods
 
         private void Awake()
@@ -36,6 +31,7 @@ namespace OnPipe.Destructibles
             particle = particlePrefab.GetComponent<ParticleSystem>();
             meshRenderer = visualPrefab.GetComponent<MeshRenderer>();
         }
+
         #endregion
 
         #region Public Methods
@@ -45,11 +41,10 @@ namespace OnPipe.Destructibles
             StartCoroutine( WaitForEndOfParticlePlay() );
         }
 
-
-
         #endregion
 
         #region Private Methods
+
         private IEnumerator WaitForEndOfParticlePlay()
         {
             if ( particle != null && meshRenderer != null )
@@ -62,21 +57,5 @@ namespace OnPipe.Destructibles
         }
 
         #endregion
-
-        private void OnEnable()
-        {
-
-        }
-
-        private void OnDisable()
-        {
-
-        }
-
-        private void OnDestroy()
-        {
-        }
-
-
     }
 }

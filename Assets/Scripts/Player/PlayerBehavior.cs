@@ -40,9 +40,9 @@ namespace OnPipe.Player
         private static float minSafeRadius;
         private bool canScaleDown;
 
-        int scaleDownAnimHash;
-        int scaleUpAnimHash;
-        int failOrWinAnimHash;
+        private int scaleDownAnimHash;
+        private int scaleUpAnimHash;
+        private int failOrWinAnimHash;
 
         #endregion
 
@@ -71,6 +71,7 @@ namespace OnPipe.Player
 
         #region Public Methods
 
+        //when player enters a smaller pipe
         public void RefreshPipeProperties( Pipe.PipeSize previousPipeSize, Pipe.Pipe.PipeType pipeType )
         {
             ChangeMinScale( pipeType );
@@ -93,24 +94,6 @@ namespace OnPipe.Player
             }
         }
 
-        private void ChangeMinScale( Pipe.Pipe.PipeType pipeType )
-        {
-            switch ( pipeType.pipeSize )
-            {
-                case Pipe.PipeSize.Small:
-                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
-                    break;
-                case Pipe.PipeSize.Medium:
-                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
-                    break;
-                case Pipe.PipeSize.Large:
-                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
-                    break;
-                default:
-                    break;
-            }
-        }
-
         public void DestroyItself()
         {
             playerMovement.Stop();
@@ -128,6 +111,24 @@ namespace OnPipe.Player
         #endregion
 
         #region Private Methods
+        
+        private void ChangeMinScale( Pipe.Pipe.PipeType pipeType )
+        {
+            switch ( pipeType.pipeSize )
+            {
+                case Pipe.PipeSize.Small:
+                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
+                    break;
+                case Pipe.PipeSize.Medium:
+                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
+                    break;
+                case Pipe.PipeSize.Large:
+                    UpdateMinimumSafeRadiusChange( pipeType.pipeScale );
+                    break;
+                default:
+                    break;
+            }
+        }
 
         private void OnPlayerInputDown()
         {

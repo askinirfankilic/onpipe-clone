@@ -6,6 +6,9 @@ using OnPipe.Managers;
 
 namespace OnPipe.Player
 {
+    /// <summary>
+    /// Handles all input for gameplay.
+    /// </summary>
     [DisallowMultipleComponent]
     public class PlayerInput : MonoSingleton<PlayerInput>
     {

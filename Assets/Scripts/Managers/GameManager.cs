@@ -12,6 +12,7 @@ namespace OnPipe.Managers
         private bool isGameStarted = false;
         private int score;
         private int level;
+
         #endregion
 
         #region Properties
@@ -23,6 +24,7 @@ namespace OnPipe.Managers
         #endregion
 
         #region Unity Methods
+
         private void Awake()
         {
             GetPreviousScore();

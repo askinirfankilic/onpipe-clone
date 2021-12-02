@@ -17,7 +17,7 @@ namespace OnPipe.Finish
         #region Unity Fields
 
        
-
+        // DOTO's when player crosses finish.
         private void OnTriggerEnter( Collider other )
         {
 

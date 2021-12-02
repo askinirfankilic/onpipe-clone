@@ -8,6 +8,9 @@ using UnityEditor;
 
 namespace OnPipe.EditorScript
 {
+    /// <summary>
+    /// Editor script for PlayerInput class.
+    /// </summary>
     [CustomEditor( typeof( Player.PlayerInput ) )]
     public class PlayerInputEditor : Editor
     {

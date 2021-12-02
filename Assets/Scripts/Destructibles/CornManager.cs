@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace OnPipe.Destructibles
 {
+    
     [DisallowMultipleComponent]
     public class CornManager : MonoBehaviour
     {
@@ -29,6 +30,7 @@ namespace OnPipe.Destructibles
                 }
             }
 
+            //Send corn count
             Managers.EventManager.Invoke_OnCornCalculation( cornCount );
 
 

@@ -1,5 +1,8 @@
 namespace OnPipe
 {
+    /// <summary>
+    /// Data container for layers.
+    /// </summary>
     public class Layers
     {
         public static int Corn = 3;

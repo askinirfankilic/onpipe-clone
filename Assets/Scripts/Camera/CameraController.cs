@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 namespace OnPipe.Camera
 {
+    /// <summary>
+    /// Different camera axis for linear movement.
+    /// </summary>
     public enum Axis
     {
         X, Y, Z
@@ -57,6 +58,9 @@ namespace OnPipe.Camera
 
         #region Public Methods
 
+        /// <summary>
+        /// Move around y axis for a while.
+        /// </summary>
         private void OnFinish()
         {
             Managers.EventManager.OnPlayerPosChanged -= FollowPlayerOnAxis;
@@ -67,7 +71,12 @@ namespace OnPipe.Camera
 
         #region Private Methods
 
-        private void FollowPlayerOnAxis( Axis axis, float followThreshodl = 0 )
+        /// <summary>
+        /// Follow player around one axis.
+        /// </summary>
+        /// <param name="axis">Axis that being followed.</param>
+        /// <param name="followThreshold">A value for how hard camera going to follow player.</param>
+        private void FollowPlayerOnAxis( Axis axis, float followThreshold = 0 )
         {
             switch ( axis )
             {

@@ -6,8 +6,14 @@ namespace OnPipe.UI
     [RequireComponent( typeof( Button ) ), DisallowMultipleComponent]
     public class StartButton : MonoBehaviour
     {
+        #region Private Fields
+
         private Button startButton;
 
+        #endregion
+
+        #region Unity Methods
+        
         private void Awake()
         {
             startButton = GetComponent<Button>();
@@ -18,5 +24,7 @@ namespace OnPipe.UI
                 gameObject.SetActive( false );
             } );
         }
+
+        #endregion
     }
 }

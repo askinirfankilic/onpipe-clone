@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace OnPipe.Managers
 {
+    /// <summary>
+    /// Inherited from monobehavior Singleton class.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     {
         private static volatile T instance;

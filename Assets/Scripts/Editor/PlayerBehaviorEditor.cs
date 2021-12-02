@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 
 
-namespace OnPipe
+namespace OnPipe.EditorScript
 {
     [CustomEditor( typeof( Player.PlayerBehavior ) )]
     public class PlayerBehaviorEditor : Editor
@@ -26,6 +26,9 @@ namespace OnPipe
 
         }
 
+        /// <summary>
+        /// Assign minimum safe radius in the editor.
+        /// </summary>
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
